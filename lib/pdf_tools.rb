@@ -22,5 +22,5 @@ module PdfTools
     PdfTools::CPdf.total_pages(params)
   end
 
-  module_function :split, :extract
+  module_function :split, :extract, :total_pages
 end
