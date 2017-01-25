@@ -4,7 +4,6 @@ module PdfTools
       output_filename = File.join(target_dir, filename)
       switch          = "#{source} cat #{pages} output #{output_filename}"
       cmd             = [PDFTK_APP, switch].join(' ')
-4
       IO.popen cmd, 'r+' do |io|
         warn io.read
       end
