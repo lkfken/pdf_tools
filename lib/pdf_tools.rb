@@ -10,12 +10,17 @@ module PdfTools
   CPDF_APP  = File.join(PdfTools::GEMPATH, 'vendor', 'cpdf', 'cpdf.exe')
   PDFTK_APP = File.join(PdfTools::GEMPATH, 'vendor', 'pdftk', 'pdftk.exe')
 
-  class Helper
-    def self.split(params={})
-      PdfTools::CPdf.split(params)
-    end
-    def self.extract(params={})
-      PdfTools::PDFtk.extract(params)
-    end
+  def split(params={})
+    PdfTools::CPdf.split(params)
   end
+
+  def extract(params={})
+    PdfTools::PDFtk.extract(params)
+  end
+
+  def total_pages(params={})
+    PdfTools::CPdf.total_pages(params)
+  end
+
+  module_function :split, :extract
 end
