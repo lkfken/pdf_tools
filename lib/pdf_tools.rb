@@ -13,6 +13,10 @@ module PdfTools
     PdfTools::CPdf.split(params)
   end
 
+  def merge(params={})
+    PdfTools::CPdf.merge(params)
+  end
+
   def extract(params={})
     PdfTools::PDFtk.extract(params)
   end
@@ -21,5 +25,5 @@ module PdfTools
     PdfTools::CPdf.total_pages(params)
   end
 
-  module_function :split, :extract, :total_pages
+  module_function :split, :extract, :total_pages, :merge
 end
