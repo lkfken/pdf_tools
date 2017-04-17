@@ -35,6 +35,11 @@ Extract page 10 to page 15 of a .pdf file:
 
     PdfTools::Helper.extract(pages: '10-15', source: 'some_file.pdf', target_dir: './output', filename: 'my_pages.pdf')
 
+Merge .pdf files into one:
+
+     pdf_sources = ['a.pdf', 'b.pdf', 'c.pdf']
+     target = 'final.pdf'
+     PdfTools.merge(sources: pdf_sources, :target => target)
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
