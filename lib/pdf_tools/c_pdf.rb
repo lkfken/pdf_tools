@@ -1,21 +1,28 @@
 module PdfTools
   class CPdf
+    def self.run(switch)
+      cmd = [PdfTools::CPDF_APP, switch].join(' ')
+      stdout(cmd)
+    end
+
     def self.split(source:, chunk:, target_dir: '.', filename: '%%%_@F_@S_@E.pdf')
       switch = "-split #{source} -chunk #{chunk} -o #{target_dir}/#{filename}"
-      cmd    = [PdfTools::CPDF_APP, switch].join(' ')
-      IO.popen cmd, 'r+' do |io|
-        warn io.read
-      end
+      run(switch)
     end
 
     def self.total_pages(source:)
-      switch   = "-pages #{source}"
-      cmd      = [PdfTools::CPDF_APP, switch].join(' ')
-      pages = nil
+      switch = "-pages #{source}"
+      run(switch).to_i
+    end
+
+    private
+
+    def self.stdout(cmd)
+      output = nil
       IO.popen cmd, 'r+' do |io|
-        pages = io.read
+        output = io.read
       end
-      pages.to_i
+      output
     end
   end
 end

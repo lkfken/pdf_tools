@@ -1,5 +1,4 @@
-require "pdf_tools/version"
-require 'rbconfig'
+require 'pdf_tools/version'
 require_relative 'pdf_tools/c_pdf'
 require_relative 'pdf_tools/pdf_tk'
 
