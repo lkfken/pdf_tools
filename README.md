@@ -33,8 +33,8 @@ Split a .pdf file into multiple .pdf files, each 100 pages:
     
 Extract page 10 to page 15 of a .pdf file:
 
-    PdfTools::Helper.extract(pages: '10-15', source: 'some_file.pdf', target_dir: './output', filename: 'my_pages.pdf')
-
+    PdfTools.extract(pages: '1 4 17 31 36', source: 'tmp/penn_2.pdf', target_dir: './tmp', filename: 'Summary.pdf')
+   
 Merge .pdf files into one:
 
      pdf_sources = ['a.pdf', 'b.pdf', 'c.pdf']
