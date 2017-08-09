@@ -7,22 +7,18 @@ A wrapper for Coherent PDF (cpdf) and PDFtk
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pdf_tools'
+gem 'pdf_tools', :git => 'https://github.com/lkfken/pdf_tools.git'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install pdf_tools
-
 ## Usage
 
 Split a .pdf file into multiple .pdf files, each 100 pages:
 
-    PdfTools::Helper.split(source: 'some_file.pdf', chunk: 100, target_dir: '.', filename: '%%%_@F_@S_@E.pdf')
+    PdfTools.split(source: 'some_file.pdf', chunk: 100, target_dir: '.', filename: '%%%_@F_@S_@E.pdf')
 
     %, %%, %%%, etc. Sequence number padded to the number of percent signs
     @F Original filename without extension
@@ -31,15 +27,16 @@ Split a .pdf file into multiple .pdf files, each 100 pages:
     @E End page of this chunk
     @B Bookmark name at this page
     
-Extract page 10 to page 15 of a .pdf file:
+Extract random pages of a .pdf file:
 
-    PdfTools.extract(pages: '1 4 17 31 36', source: 'tmp/penn_2.pdf', target_dir: './tmp', filename: 'Summary.pdf')
+    PdfTools.extract(pages: '1 4 17 20-22 31 36', source: 'tmp/penn_2.pdf', target_dir: './tmp', filename: 'Summary.pdf')
    
 Merge .pdf files into one:
 
      pdf_sources = ['a.pdf', 'b.pdf', 'c.pdf']
      target = 'final.pdf'
      PdfTools.merge(sources: pdf_sources, :target => target)
+     
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -48,7 +45,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pdf_tools. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lkfken/pdf_tools. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
