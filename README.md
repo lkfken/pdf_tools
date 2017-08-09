@@ -1,6 +1,6 @@
 # PdfTools
 
-A wrapper for Coherent PDF (cpdf) and PDFtk
+A wrapper for Coherent PDF (cpdf) and PDFtk. Windows only.
 
 ## Installation
 
